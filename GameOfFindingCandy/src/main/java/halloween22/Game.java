@@ -28,17 +28,17 @@ public class Game {
 
 
       JPanel panel = new JPanel();
-      JTextField tf = new JTextField(80);
-      tf.setFont(new Font("Arial Unicode MS", Font.BOLD, 16));
-      JButton send = new JButton("Skicka");
+      JTextField userInputTextField = new JTextField(80);
+      userInputTextField.setFont(new Font("Arial Unicode MS", Font.BOLD, 16));
+      JButton sendBtn = new JButton("Skicka");
 
 
-      JTextArea ta = new JTextArea ( 20, 58 );
-      ta.setFont(new Font("Arial Unicode MS", Font.BOLD, 16));
-      ta.setEditable ( false ); // set textArea non-editable*/
+      JTextArea chatWindow = new JTextArea ( 20, 58 );
+      chatWindow.setFont(new Font("Arial Unicode MS", Font.BOLD, 16));
+      chatWindow.setEditable ( false ); // set textArea non-editable*/
 
       //adding scrollfunction
-      JScrollPane scroll = new JScrollPane ( ta );
+      JScrollPane scroll = new JScrollPane ( chatWindow );
       scroll.setVerticalScrollBarPolicy ( ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS );
 
       GridBagLayout layout = new GridBagLayout();
@@ -57,12 +57,12 @@ public class Game {
       gbc.gridy = 1;
       gbc.gridwidth = 1;
 
-      panel.add(tf, gbc);
+      panel.add(userInputTextField, gbc);
 
 
       gbc.gridx = 1;
       gbc.gridy = 1;
-      panel.add(send, gbc);
+      panel.add(sendBtn, gbc);
 
 
       frame.add(panel);
@@ -72,22 +72,22 @@ public class Game {
       frame.getContentPane().add(BorderLayout.SOUTH, panel);
       frame.setVisible(true);
 
-      send.addActionListener(e -> gettingUserInputAndPrintingItToTextArea(tf, ta));
+      sendBtn.addActionListener(e -> gettingUserInputAndPrintingItToTextArea(userInputTextField, chatWindow));
 
       String startGame = HalloweenCharacters.characters[0].getWelcomeGreeting();
-      ta.append(startGame);
+      chatWindow.append(startGame);
 
    }
 
    /**
-    * @param tf Textfield that takes userinput.
-    * @param ta TextArea where conversation takes place =  chat-window.
+    * @param userInputTextField Textfield that takes userinput.
+    * @param chatWindow TextArea where conversation takes place =  chat-window.
     */
-   private static void gettingUserInputAndPrintingItToTextArea(JTextField tf, JTextArea ta) {
-      String inputString = tf.getText().toLowerCase();
-      ta.append('\n' + inputString + '\n'+ '\n');
-      tf.setText("");
-      ta.append(myGame(inputString));
+   private static void gettingUserInputAndPrintingItToTextArea(JTextField userInputTextField, JTextArea chatWindow) {
+      String inputString = userInputTextField.getText().toLowerCase();
+      chatWindow.append('\n' + inputString + '\n'+ '\n');
+      userInputTextField.setText("");
+      chatWindow.append(myGame(inputString));
    }
 
    /**
