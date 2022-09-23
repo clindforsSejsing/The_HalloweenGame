@@ -34,7 +34,7 @@ Some of the things you have include in your program:
 * The program should include at least three of the following: 
 - Lists and sorting.
 - Anonymous functions.
-- Filereading and writing (from other streams than System).
+- Filereading and writing (can also be from other streams than System).
 - Interface.
 - JavaDoc.
 

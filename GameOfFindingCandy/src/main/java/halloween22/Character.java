@@ -1,74 +1,54 @@
 package halloween22;
 
-public class Character {
-   public String getName() {
-      return name;
-   }
+public class Character implements monster {
 
-   public void setName(String name) {
-      this.name = name;
-   }
-
+   @Override
    public String getWelcomeGreeting() {
       return welcomeGreeting;
    }
 
-   public void setWelcomeGreeting(String welcomeGreeting) {
-      this.welcomeGreeting = welcomeGreeting;
-   }
-
+   @Override
    public String getQuestion() {
       return question;
    }
 
-   public void setQuestion(String question) {
-      this.question = question;
-   }
-
+   @Override
    public String getGoodbyeMessage() {
       return goodbyeMessage;
    }
 
-   public void setGoodbyeMessage(String goodbyeMessage) {
-      this.goodbyeMessage = goodbyeMessage;
-   }
+   private final String welcomeGreeting;
+   private final String question;
+   private final String correctAnswer;
 
-   private String name;
-   private String welcomeGreeting;
-   private String question;
-   private String correctAnswer;
+   private final String wrongAnswer;
 
+   @Override
    public String getKeyword() {
       return keyword;
    }
 
-   public void setKeyword(String keyword) {
-      this.keyword = keyword;
-   }
+   private final String keyword;
 
-   private String keyword;
+   private final String goodbyeMessage;
 
-   private String goodbyeMessage;
-   //ha en img? hur att lösa det?
 
+   @Override
    public String getCorrectAnswer() {
       return correctAnswer;
    }
 
-   public void setCorrectAnswer(String correctAnswer) {
-      this.correctAnswer = correctAnswer;
+   @Override
+   public String getWrongAnswer() {
+      return wrongAnswer;
    }
-
-
-
-
-
-public Character (String name, String welcomeGreeting, String question, String correctAnswer,String keyword
+public Character (String welcomeGreeting, String question, String correctAnswer,String wrongAnswer, String keyword
                   ,String goodbyeMessage){
-   this.name= name;
+
    this.welcomeGreeting = welcomeGreeting;
    this.question = question;
    this.correctAnswer = correctAnswer;
+   this.wrongAnswer = wrongAnswer;
    this.keyword = keyword;
    this.goodbyeMessage = goodbyeMessage;
 
